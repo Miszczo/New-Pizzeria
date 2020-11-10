@@ -481,6 +481,19 @@
         // console.log(thisCartProduct.dom.price.innerHTML);
       });
     }
+
+    remowe(){
+      const thisCartProduct = this;
+
+      const event = new CustomEvent('remove', {
+        bubbles:true,
+        detail: {
+          cartProduct: thisCartProduct,
+        },
+      });
+
+      thisCartProduct.dom.wrapper.dispatchEvent(event);
+    }
   }
   console.log(CartProduct);
 
