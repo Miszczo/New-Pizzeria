@@ -1,4 +1,5 @@
 import {Product} from './components/Product.js';
+import {Booking} from './components/booking.js';
 import {Cart} from './components/Cart.js';
 import {select, settings, classNames, templates} from './settings.js';
 
@@ -78,6 +79,15 @@ const app = {
       page.classList.toggle(classNames.pages.active, page.getAttribute('id') == pageId);
     }
   },
+  initBooking: function(){
+    const thisApp = this;
+
+    thisApp.widgetContainer = document.querySelector(select.containerOf.booking);
+    console.log('widgetContainer', thisApp.widgetContainer);
+
+    const newBooking = new Booking(thisApp.widgetContainer);
+    console.log('newBooking', newBooking);
+  },
   init: function(){
     const thisApp = this;
     console.log('*** App starting ***');
@@ -89,6 +99,7 @@ const app = {
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 };
 
