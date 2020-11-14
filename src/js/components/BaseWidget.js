@@ -5,6 +5,14 @@ export class BaseWidget{
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
     thisWidget.correctValue = initialValue;
+
+
+  }
+  parseValue(newValue){
+    return parseInt(newValue);
+  }
+  isValid(newValue){
+    return !isNaN(newValue);
   }
   get value(){
     const thisWidget = this;

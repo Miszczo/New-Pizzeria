@@ -3,13 +3,13 @@ import { AmountWidget } from './AmountWidget.js';
 
 export class Booking{
   constructor(widgetContainer){
-    const thisBooking = this
+    const thisBooking = this;
 
     thisBooking.render(widgetContainer);
     thisBooking.initWidgets();
   }
   render(widgetContainer){
-    const thisBooking = this
+    const thisBooking = this;
 
     const generatedHTML = templates.bookingWidget();
 
@@ -21,7 +21,7 @@ export class Booking{
 
   }
   initWidgets(){
-    const thisBooking = this
+    const thisBooking = this;
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     console.log(thisBooking.peopleAmount);
