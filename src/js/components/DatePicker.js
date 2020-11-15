@@ -20,7 +20,7 @@ export class DatePicker extends BaseWidget {
   initPlugin(){
     const thisWidget = this;
 
-    thisWidget.minDate == new Date(thisWidget.value);
+    thisWidget.minDate = new Date(thisWidget.value);
 
     thisWidget.maxDate = utils.addDays(
       thisWidget.minDate,
@@ -32,10 +32,10 @@ export class DatePicker extends BaseWidget {
         defaultDate: thisWidget.minDate,
         minDate: thisWidget.minDate,
         maxDate: thisWidget.maxDate,
-        'locale': {
+        locale: {
           'firstDayOfWeek': 1 // start week on Monday
         },
-        'disable': [
+        disable: [
           function(date) {
             // return true to disable
             return (date.getDay() === 1);
@@ -51,12 +51,9 @@ export class DatePicker extends BaseWidget {
   parseValue(newValue){
     return (newValue);
   }
-  isValid(newValue){
-    return isNaN(newValue);
+  isValid(){
+    return true;
   }
   renderValue(){
-    const thisWidget = this;
-
-    console.log('widget value:', thisWidget.value);
   }
 }
