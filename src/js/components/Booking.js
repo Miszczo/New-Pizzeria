@@ -80,4 +80,36 @@ export class Booking{
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }
+
+  parseData(bookings, eventsCurrent, eventsRepeat){
+    const thisBooking = this;
+
+    console.log('eventsCurrent:', eventsCurrent);
+
+    thisBooking.booked = {};
+    console.log('thisBooking.booked:', thisBooking.booked);
+
+    for(let singleEvent of eventsCurrent){
+      console.log('singleEvent', singleEvent);
+
+      thisBooking.makeBooked(
+        singleEvent.date,
+        singleEvent.hour,
+        singleEvent.duration,
+        singleEvent.table
+      );
+    }
+
+  }
+
+  makeBooked(date, hour, duration, table){
+    const thisBooking = this;
+
+    thisBooking.booked = {
+      [date]:{
+        [hour]:[table]
+      },
+    };
+    console.log('thisBooking.booked:', thisBooking.booked);
+  }
 }
