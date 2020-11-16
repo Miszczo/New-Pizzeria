@@ -107,9 +107,11 @@ export class Booking{
 
     thisBooking.booked = {
       [date]:{
-        [hour]:[table]
+        [hour]:[table],
+        [16]:[table]
       },
     };
+
     console.log('thisBooking.booked:', thisBooking.booked);
   }
 }
