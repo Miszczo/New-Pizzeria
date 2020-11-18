@@ -165,6 +165,12 @@ export class Booking{
       // console.log(thisBooking.booked[date][i].push(table));
       // console.log('thisBooking.booked[date]:', thisBooking.booked[date]);
     }
-    console.log('thisBooking.booked:', thisBooking.booked);
+    // console.log('thisBooking.booked:', thisBooking.booked);
+  }
+
+  updateDOM(){
+    const thisBooking = this;
+
+    console.log(thisBooking);
   }
 }
