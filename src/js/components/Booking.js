@@ -106,7 +106,7 @@ export class Booking{
 
     /* loop for bookings event */
     for(let singleBookingsEvent of bookings){
-      console.log('singleBookingsEvent', singleBookingsEvent);
+      // console.log('singleBookingsEvent', singleBookingsEvent);
 
       thisBooking.makeBooked(
         singleBookingsEvent.date,
@@ -115,21 +115,49 @@ export class Booking{
         singleBookingsEvent.table
       );
     }
+    /* loop for events repeat */
+
+    const minDate = thisBooking.datePicker.minDate;
+    const maxDate = thisBooking.datePicker.maxDate;
+
+    console.log('minDate:', minDate);
+    console.log('maxDate:', maxDate);
+
+    for(let singleEventsRepeat of eventsRepeat){
+      console.log('singleEventsRepeat', singleEventsRepeat);
+
+      if(singleEventsRepeat.repeat == 'daily'){
+        for(let i = minDate; i <= maxDate; i= utils.addDays(i, 1)){
+          thisBooking.makeBooked(
+            utils.dateToStr(i),
+            singleEventsRepeat.hour,
+            singleEventsRepeat.duration,
+            singleEventsRepeat.table
+          );
+        }
+      }
+    }
 
   }
 
-  makeBooked(date, hour, duration, table, id){
+  makeBooked(date, hour, duration, table){
     const thisBooking = this;
 
-    thisBooking.booked[date] = {};
-    // console.log(thisBooking.booked[id]);
-    console.log(thisBooking.booked[date][hour] = []);
+    // console.log('thisBooking.booked[date];', thisBooking.booked[date]);
+
+    // thisBooking.booked[date] = {};
+
+    if (typeof thisBooking.booked[date] === 'undefined') {
+      thisBooking.booked[date] = {};
+    }
+
+    // console.log('thisBooking.booked[date];', thisBooking.booked[date]);
 
     const startHour = utils.hourToNumber(hour);
     // console.log('startHour:', startHour);
 
     for(let i = startHour; i < startHour + duration; i+=0.5){
-      if(typeof thisBooking.booked[date][i] == 'undefined') {
+      if(typeof thisBooking.booked[date][i] === 'undefined') {
         thisBooking.booked[date][i] = [];
       }
       thisBooking.booked[date][i].push(table);
