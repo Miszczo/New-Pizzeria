@@ -8,7 +8,7 @@ const app = {
 
   initMenu: function(){
     const thisApp = this;
-    console.log('thisApp.data:', thisApp.data);
+    // console.log('thisApp.data:', thisApp.data);
 
     for(let productData in thisApp.data.products){
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
@@ -38,14 +38,14 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse:' ,parsedResponse);
+        // console.log('parsedResponse:' ,parsedResponse);
         /* save parsedResponse as thisApp.data.products */
         thisApp.data.products = parsedResponse;
         /* execute initMenu method */
         thisApp.initMenu();
       });
 
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    // console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
   initPages: function(){
     const thisApp = this;
@@ -83,10 +83,10 @@ const app = {
     const thisApp = this;
 
     const widgetContainer = document.querySelector(select.containerOf.booking);
-    console.log('widgetContainer', widgetContainer);
+    // console.log('widgetContainer', widgetContainer);
 
     thisApp.Booking = new Booking(widgetContainer);
-    console.log('newBooking', thisApp.Booking);
+    // console.log('newBooking', thisApp.Booking);
   },
   init: function(){
     const thisApp = this;

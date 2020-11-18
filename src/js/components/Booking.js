@@ -84,34 +84,59 @@ export class Booking{
   parseData(bookings, eventsCurrent, eventsRepeat){
     const thisBooking = this;
 
+    console.log('bookings:', bookings);
     console.log('eventsCurrent:', eventsCurrent);
+    console.log('eventsRepeat:', eventsRepeat);
+
+    // console.log('eventsRepeat:', eventsRepeat);
 
     thisBooking.booked = {};
-    console.log('thisBooking.booked:', thisBooking.booked);
+    // console.log('thisBooking.booked:', thisBooking.booked);
 
-    for(let singleEvent of eventsCurrent){
-      console.log('singleEvent', singleEvent);
+    for(let singleCurrentEvent of eventsCurrent){
+      console.log('singleCurrentEvent', singleCurrentEvent);
 
       thisBooking.makeBooked(
-        singleEvent.date,
-        singleEvent.hour,
-        singleEvent.duration,
-        singleEvent.table
+        singleCurrentEvent.date,
+        singleCurrentEvent.hour,
+        singleCurrentEvent.duration,
+        singleCurrentEvent.table
+      );
+    }
+
+    /* loop for bookings event */
+    for(let singleBookingsEvent of bookings){
+      console.log('singleBookingsEvent', singleBookingsEvent);
+
+      thisBooking.makeBooked(
+        singleBookingsEvent.date,
+        singleBookingsEvent.hour,
+        singleBookingsEvent.duration,
+        singleBookingsEvent.table
       );
     }
 
   }
 
-  makeBooked(date, hour, duration, table){
+  makeBooked(date, hour, duration, table, id){
     const thisBooking = this;
 
-    thisBooking.booked = {
-      [date]:{
-        [hour]:[table],
-        [16]:[table]
-      },
-    };
+    thisBooking.booked[date] = {};
+    // console.log(thisBooking.booked[id]);
+    console.log(thisBooking.booked[date][hour] = []);
 
+    const startHour = utils.hourToNumber(hour);
+    // console.log('startHour:', startHour);
+
+    for(let i = startHour; i < startHour + duration; i+=0.5){
+      if(typeof thisBooking.booked[date][i] == 'undefined') {
+        thisBooking.booked[date][i] = [];
+      }
+      thisBooking.booked[date][i].push(table);
+
+      // console.log(thisBooking.booked[date][i].push(table));
+      // console.log('thisBooking.booked[date]:', thisBooking.booked[date]);
+    }
     console.log('thisBooking.booked:', thisBooking.booked);
   }
 }

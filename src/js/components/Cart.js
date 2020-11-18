@@ -13,7 +13,7 @@ export class Cart{
     thisCart.getElements(element);
     thisCart.initActions();
 
-    console.log('new Cart', thisCart);
+    // console.log('new Cart', thisCart);
   }
 
   getElements(element){
@@ -24,7 +24,7 @@ export class Cart{
     thisCart.dom.wrapper = element;
 
     thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
-    console.log('thisCart.dom.toggleTrigger:', thisCart.dom.toggleTrigger);
+    // console.log('thisCart.dom.toggleTrigger:', thisCart.dom.toggleTrigger);
 
     thisCart.dom.productList = document.querySelector(select.cart.productList);
 
@@ -35,7 +35,7 @@ export class Cart{
     }
 
     thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
-    console.log(thisCart.dom.form);
+    // console.log(thisCart.dom.form);
 
     thisCart.dom.telephoneInput = thisCart.dom.wrapper.querySelector(select.cart.phone);
 
