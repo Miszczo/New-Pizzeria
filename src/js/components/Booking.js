@@ -231,12 +231,13 @@ export class Booking{
     const thisBooking = this;
 
     const tables = thisBooking.dom.tables;
-    console.log('table:', tables);
+    // console.log('table:', tables);
 
     for(let table of tables){
       if (!table.classList.contains('booked')){
         table.addEventListener('click', function(){
-          table.classList.toggle(classNames.booking.tableBooked);
+          table.classList.toggle('selected');
+          table.classList.toggle('booked');
           console.log('selected');
         });
       } else {
@@ -268,11 +269,13 @@ export class Booking{
         payload.starters.push(starter.value);
       }
     }
+    const tables = thisBooking.dom.tables;
 
-    for (let table of thisBooking.dom.tables) {
+    for (let table of tables) {
 
       const tableNumber = table.getAttribute(settings.booking.tableIdAttribute);
       const tableId = parseInt(tableNumber);
+      console.log(tableNumber, tableId);
 
       if (table.classList.contains('selected')) {
         payload.table.push(tableId);
