@@ -32,7 +32,6 @@ export class AmountWidget extends BaseWidget{
 
     thisWidget.dom.linkDecrease.addEventListener('click', function(event){
       event.preventDefault();
-
       thisWidget.value = thisWidget.value - 1;
       console.log('click');
     });

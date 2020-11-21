@@ -206,7 +206,7 @@
   "event": [
     {
       "id": 1,
-      "date": "2020-11-19",
+      "date": "2020-11-21",
       "hour": "12:30",
       "table": 1,
       "repeat": false,
@@ -240,7 +240,7 @@
       "hour": "19:00",
       "table": 3,
       "repeat": "daily",
-      "duration":8,
+      "duration":5,
       "ppl": 3,
       "starters": []
     },
@@ -258,13 +258,20 @@
   "booking": [
     {
       "id": 2,
-      "date": "2020-11-20",
+      "date": "2020-11-21",
       "hour": "13:00",
       "table": 3,
       "repeat": "daily",
-      "duration": 6,
+      "duration": 4,
       "ppl": 3,
       "starters": ["lemonWater"]
+    }
+  ],
+  "data-flickity-options": [
+    {
+      "autoPlay": "true",
+      "prevNextButtons": "false",
+      "setGallerySize": "false"
     }
   ]
 }

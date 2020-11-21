@@ -56,6 +56,9 @@ const app = {
 
     thisApp.activatePage(thisApp.pages[0].id);
 
+    thisApp.pageLinks = Array.from(document.querySelectorAll('.link'));
+    console.log(thisApp.pageLinks);
+
     for(let link of thisApp.navLinks){
       link.addEventListener('click', function(event){
         const clickedElement = this;
@@ -67,6 +70,18 @@ const app = {
         thisApp.activatePage(clickId);
       });
     }
+
+    for(let link of thisApp.pageLinks) {
+      link.addEventListener('click', function(event) {
+        const clickedElement = this;
+        event.preventDefault();
+
+        const pageId = clickedElement.getAttribute('href').replace('#', '');
+        thisApp.activatePage(pageId);
+        link.classList.add('active');
+      });
+    }
+
   },
   activatePage: function(pageId){
     const thisApp = this;
